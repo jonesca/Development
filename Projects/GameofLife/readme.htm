@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conway's Game of Life - Coding Exercise</title>
+        <meta charset="UTF-8"> <!-- Defines the character set for the browser to use UTF-8 is the standard -->
+        <!-- This example uses a full URL to link to a style sheet: -->
+<!--        <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css" type="text/css"> -->
+        <!-- This example links to a style sheet located in the html folder on the current web site: -->
+<!--        <link rel="stylesheet" href="/html/styles.css" type="text/css"> -->
+        <!-- This example links to a style sheet located in the same folder as the current page: -->
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+    <body>
+        <main>
+            <h1 class="headingborder">Conway's Game of Life</h1>
+
+            <p>The <strong>Game of Life</strong>, also known simply as <strong>Life</strong>, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.</p>
+
+            <p>The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves, or, for advanced "players", by creating patterns with particular properties. The Game has been reprogrammed multiple times in various coding languages.</p>
+
+            <h2 class="headingborder">Rules</h2>
+
+            <p>The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, alive or dead, or "populated" or "unpopulated". Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:</p>
+
+            <ol>
+                <li>Any live (populated) cell with fewer than two live neighbours dies (unpopulated), as if caused by underpopulation.</li>
+                <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+                <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+                <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+
+            </ol>
+
+            <p>The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.</p>
+            
+            <h2 class="headingborder">Examples of Patterns</h2>
+            
+            <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns">Examples of the Game of Life</a>
+            
+            
+            <img src="/images/LifeExamples.jpg" alt="Examples of Life">
+            
+            <footer>
+                <h1 class="headingborder">Footer</h1>
+                <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Wikipedia: Conway's Game of Life</a>
+            </footer>
+
+<!--            <script src="path/myscript.js"></script>  you can reference a script file like this -->
+        </main>
+    </body>
+
+</html>
