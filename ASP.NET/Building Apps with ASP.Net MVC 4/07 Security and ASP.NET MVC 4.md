@@ -1,0 +1,4 @@
+#Authentication
+- <b><u>Forms Authentication</u></b> = a "page" where the user can enter their User name and password.  This is good for Internet apps.  It is customizable and relies on Cookies and SSL to make the session secure    
+- <b><u>OpenID / OAuth</u></b> = Open standards for authication and authorization.  REly on a 3rd party like Google, Microsoft, Twitter to authenticate the user and tell you who they are.  This is designed to work with Internet apps as well.  The benefit here is you don't have to manage credentials  
+- <b><u>Windows Authentication</u></b> = Typically used in Intranet applications because it uses components and services provided by the OS.  This is also referred to as <i>Integrated Auth</i> to create a <i>Single sign on</i> experience using domain credentials to authenticate to various resources 

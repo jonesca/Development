@@ -1,0 +1,15 @@
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\obj\Debug\PsRipper.csprojResolveAssemblyReference.cache
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\PsRipper.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\PsRipper.pdb
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Fiddler.exe
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Xceed.Zip.v5.4.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Xceed.FileSystem.v5.4.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Telerik.Analytics.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Xceed.Compression.Formats.v5.4.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Xceed.Compression.v5.4.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\obj\Debug\PsRipper.UserControlPsRipper.resources
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\obj\Debug\PsRipper.csproj.GenerateResource.Cache
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\obj\Debug\PsRipper.dll
+C:\Users\jonesca\Documents\04 Develop\GIT\psripper\PsRipper\obj\Debug\PsRipper.pdb

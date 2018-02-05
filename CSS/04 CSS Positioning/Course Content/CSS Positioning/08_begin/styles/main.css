@@ -1,0 +1,31 @@
+body {
+    background-color: #1f1f1f;
+    color: #bfbfbf;
+    height: 1000px;
+}
+
+h1 {
+    font-weight: normal;   
+}
+
+em {
+    color: #e07a05;   
+}
+
+.box {
+    background: #627da0;
+    width: 100px;
+    height: 100px;
+}
+
+.blueBox {
+    margin: 0px auto; /* this centers the element on page */
+    
+}
+.container {
+    position: absolute; /* remove from the document flow */
+    top: 50%; /* centers the top of the element at 50% of the windows size */
+    margin-top: -50px; /* The box is 100px so the negative margin -50 moves it up half it's size to center the box */
+    left: 0; /* Take out the margin so the container starts from the edge */
+    width: 100%; /* Set the container to take up the entire width */
+}

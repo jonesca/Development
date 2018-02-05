@@ -1,0 +1,155 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bootstrap',
+1 verbose cli   '3.3.6' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData bootstrap
+8 silly fetchPackageMetaData 3.3.6
+9 silly fetchNamedPackageData bootstrap
+10 silly mapToRegistry name bootstrap
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'bootstrap',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   name: 'bootstrap',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+15 silly fetchNamedPackageData 3.3.6
+16 silly mapToRegistry name 3.3.6
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry data Result {
+19 silly mapToRegistry   raw: '3.3.6',
+19 silly mapToRegistry   scope: null,
+19 silly mapToRegistry   name: '3.3.6',
+19 silly mapToRegistry   rawSpec: '',
+19 silly mapToRegistry   spec: 'latest',
+19 silly mapToRegistry   type: 'tag' }
+20 silly mapToRegistry uri https://registry.npmjs.org/3.3.6
+21 verbose request uri https://registry.npmjs.org/3.3.6
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 8:47:35 AM
+24 verbose request id b10b311d5557b56e
+25 http request GET https://registry.npmjs.org/3.3.6
+26 verbose request uri https://registry.npmjs.org/bootstrap
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 8:47:35 AM
+29 verbose etag "R7WVQIBY18UM064DQ045JNDU"
+30 http request GET https://registry.npmjs.org/bootstrap
+31 http 304 https://registry.npmjs.org/bootstrap
+32 verbose headers { date: 'Mon, 27 Jun 2016 14:47:35 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   etag: '"R7WVQIBY18UM064DQ045JNDU"',
+32 verbose headers   age: '39',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-ord1728-ORD',
+32 verbose headers   'x-cache': 'HIT',
+32 verbose headers   'x-cache-hits': '1',
+32 verbose headers   'x-timer': 'S1467038855.897343,VS0,VE0',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 silly get cb [ 304,
+33 silly get   { date: 'Mon, 27 Jun 2016 14:47:35 GMT',
+33 silly get     via: '1.1 varnish',
+33 silly get     'cache-control': 'max-age=300',
+33 silly get     etag: '"R7WVQIBY18UM064DQ045JNDU"',
+33 silly get     age: '39',
+33 silly get     connection: 'keep-alive',
+33 silly get     'x-served-by': 'cache-ord1728-ORD',
+33 silly get     'x-cache': 'HIT',
+33 silly get     'x-cache-hits': '1',
+33 silly get     'x-timer': 'S1467038855.897343,VS0,VE0',
+33 silly get     vary: 'Accept-Encoding' } ]
+34 verbose etag https://registry.npmjs.org/bootstrap from cache
+35 verbose get saving bootstrap to C:\Users\jonesca\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap\.cache.json
+36 verbose correctMkdir C:\Users\jonesca\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+37 http 404 https://registry.npmjs.org/3.3.6
+38 verbose headers { 'content-type': 'application/json',
+38 verbose headers   'cache-control': 'max-age=0',
+38 verbose headers   'content-length': '2',
+38 verbose headers   'accept-ranges': 'bytes',
+38 verbose headers   date: 'Mon, 27 Jun 2016 14:47:36 GMT',
+38 verbose headers   via: '1.1 varnish',
+38 verbose headers   age: '0',
+38 verbose headers   connection: 'keep-alive',
+38 verbose headers   'x-served-by': 'cache-ord1720-ORD',
+38 verbose headers   'x-cache': 'MISS',
+38 verbose headers   'x-cache-hits': '0',
+38 verbose headers   'x-timer': 'S1467038855.897213,VS0,VE129',
+38 verbose headers   vary: 'Accept-Encoding' }
+39 silly get cb [ 404,
+39 silly get   { 'content-type': 'application/json',
+39 silly get     'cache-control': 'max-age=0',
+39 silly get     'content-length': '2',
+39 silly get     'accept-ranges': 'bytes',
+39 silly get     date: 'Mon, 27 Jun 2016 14:47:36 GMT',
+39 silly get     via: '1.1 varnish',
+39 silly get     age: '0',
+39 silly get     connection: 'keep-alive',
+39 silly get     'x-served-by': 'cache-ord1720-ORD',
+39 silly get     'x-cache': 'MISS',
+39 silly get     'x-cache-hits': '0',
+39 silly get     'x-timer': 'S1467038855.897213,VS0,VE129',
+39 silly get     vary: 'Accept-Encoding' } ]
+40 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/3.3.6
+40 silly fetchPackageMetaData     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+40 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+40 silly fetchPackageMetaData     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+40 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:200:22)
+40 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+40 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+40 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1067:10)
+40 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+40 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+40 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:988:12)
+40 silly fetchPackageMetaData  error for 3.3.6 { Error: Registry returned 404 for GET on https://registry.npmjs.org/3.3.6
+40 silly fetchPackageMetaData     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+40 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+40 silly fetchPackageMetaData     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+40 silly fetchPackageMetaData     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:200:22)
+40 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+40 silly fetchPackageMetaData     at Request.emit (events.js:191:7)
+40 silly fetchPackageMetaData     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1067:10)
+40 silly fetchPackageMetaData     at emitOne (events.js:101:20)
+40 silly fetchPackageMetaData     at Request.emit (events.js:188:7)
+40 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:988:12) pkgid: '3.3.6', statusCode: 404, code: 'E404' }
+41 silly rollbackFailedOptional Starting
+42 silly rollbackFailedOptional Finishing
+43 silly runTopLevelLifecycles Starting
+44 silly runTopLevelLifecycles Finishing
+45 silly install printInstalled
+46 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/3.3.6
+46 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+46 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+46 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+46 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:200:22)
+46 verbose stack     at emitTwo (events.js:106:13)
+46 verbose stack     at Request.emit (events.js:191:7)
+46 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1067:10)
+46 verbose stack     at emitOne (events.js:101:20)
+46 verbose stack     at Request.emit (events.js:188:7)
+46 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:988:12)
+47 verbose statusCode 404
+48 verbose pkgid 3.3.6
+49 verbose cwd C:\Users\jonesca\Documents\04 Develop\GIT\ASP.NET\Building a Web App with ASP
+50 error Windows_NT 6.3.9600
+51 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "bootstrap" "3.3.6"
+52 error node v6.2.2
+53 error npm  v3.9.5
+54 error code E404
+55 error 404 Registry returned 404 for GET on https://registry.npmjs.org/3.3.6
+56 error 404
+57 error 404 '3.3.6' is not in the npm registry.
+58 error 404 You should bug the author to publish it (or use the name yourself!)
+59 error 404 Note that you can also install from a
+60 error 404 tarball, folder, http url, or git url.
+61 verbose exit [ 1, true ]

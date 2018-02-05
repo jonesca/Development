@@ -1,0 +1,137 @@
+html {
+    color: black;
+}
+
+body {
+    background-color: cornsilk;
+    color: black;
+}
+
+pre {
+    background-color: black;
+    border-radius: 0.5em;
+    padding: 0px 10px 5px;
+    color: black;
+}
+
+code {
+    background-color: black;
+    border-radius: 0.5em;
+    padding: 0em 1em 0.1em;
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: darkred;
+}
+
+h1.darkorange {
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+h3 {
+    padding-left: 10px;
+    color: black;
+}
+
+h3.green {
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+h4{
+    color: navy;
+}
+
+h5{
+    color:black;
+    font-style: italic;
+}
+
+.divborder {
+    border-style: ridge;
+    border-width: 10px;
+    border-color: darkgray;
+    margin-left: 10px;
+}
+
+.innerdivborder {
+    border-style: dotted;
+    border-width: 2px;
+    border-color: black;
+    margin: 10px;
+    padding: 5px;
+}
+
+.c1r1 {
+    padding-bottom: 300px;
+}
+
+.darkorange {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.darkgrey{
+    color: darkgrey;
+}
+
+.blue{
+    color:blue;
+}
+
+.agree{
+    color:green;
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+p,
+ul,
+li
+{
+    color:black;
+}
+
+li.nobullet {
+    list-style: none;
+    color: black;
+}
+
+.quote {
+    color: black;
+    border: 1px dashed black;
+    background: lightgray;
+    font-style: italic;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tip {
+    color: black;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: yellow;
+}
+
+.underline {
+border-bottom: 1px solid black;
+}
