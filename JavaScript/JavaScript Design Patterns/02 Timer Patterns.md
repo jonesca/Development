@@ -15,3 +15,19 @@
 
 - `setInterval(function () { ... }, 0);`
 - Executes continuously with the specified delay between each execution
+
+#### Asynchronous Execution Pattern
+
+- Use setTimeout to break a long running function into smaller chunks so the browser does not appear to be "not responding"
+  - This is most commonly used with lower powered devices such as mobile phones or older, slower browsers
+
+#### Recursive setTimeout Pattern
+
+- Executes code over a continuous period of time
+- Most commonly use when querying a data source
+  - AJAX long polling
+
+## Asynchronous Module Definitions
+
+- **Node.js** is a server implementation of JavaScript
+- **ComnmonJS** is an attempt to standardize common JavaScript patterns
