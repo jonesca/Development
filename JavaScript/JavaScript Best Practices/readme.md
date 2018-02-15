@@ -75,3 +75,35 @@ function print(out) {
     console.log()
 }
 ```
+
+### this
+
+If you assign this to a variable then it doesn't reference the global scope when in use; it references the assigned variable
+
+```javascript
+var obj = function () {
+    var _this = this;
+    console.log(this);
+    _this.hello = 'hello';
+
+    _this.greet = function () {
+    console.log(_this.hello);
+    }   
+
+    this.delayGreeting = function () {
+        setTimeout(_this.greet, 1000);
+    }
+}
+```
+
+## Async Patterns
+
+**Callbacks** and **Promises** come in to play when we are doing _Async_ methods
+
+### Callbacks
+
+Use named functions to perform callbacks rather than nesting everything in "Christmas Tree" code
+
+### Promises
+
+Promises are essentially objects; Promises can be returned
