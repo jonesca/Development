@@ -1,6 +1,6 @@
 # JavaScript from Scratch
 
-**Jesse Liberty** http://JesseLiberty.com @JesseLiberty
+[**Jesse Liberty**](http://JesseLiberty.com) @JesseLiberty
 
 ## Fundamentals
 
