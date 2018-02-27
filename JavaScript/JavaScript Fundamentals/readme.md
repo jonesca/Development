@@ -172,3 +172,26 @@ if (somethingGoesWrong) {
 - All numbers are floating point data types.  They are all of type **_number_**
   - Decimal fractions are not exact
 - **toFixed(n)**: returns the number to n decimal places
+
+### Arrays
+
+- Arrays and objects are the only two data structures available in JavaScript so they are used alot.
+
+### Regular Expressions
+
+![Regular Expressions](./images/RegExpess.jpg)
+
+### JSON
+
+- JavaScript Object Notation
+- Uses JavaScript object literals as a data format
+- Lightweight, readable alternative to xml
+- increasingly used in AJAX web applications
+
+#### EXAMPLE: JSON vs XML
+
+![JSON vs XML](./images/JSONvsXML.jpg)
+
+#### EXAMPLE: ParseFloat
+
+![ParseFloat](./images/ParseFloat.jpg)
