@@ -141,3 +141,90 @@ var value1 = 0b10;
 console.log(value); // yields 8 0o indicate octal and 10 = 8
 console.log(value1); //yields 2
 ```
+
+### Template Literals
+
+```javascript
+'use strict'
+let invoiceNum = '1350';
+console.log(`Invoice Number: ${invoiceNum}`);
+// output: Invoice Number: 1350
+```
+
+## ES6 Modules and Classes
+
+- To demonstrate modules use a template HTML file such as:
+- Get traceur from github _google/traceur-compiler_
+- Get es6 module loader from _ModuleLoader/es6-module-loader_
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="traceur.min.js"></script>
+  <script src="es6-module-loader-dev.js"></script>
+</head>
+<body>
+  <script>
+    System.import('./base.js');
+  </script>
+</body>
+</html>
+
+```
+
+### Module Basics
+
+- Modules infer 'use strict' automatically
+- Modules load first
+- **import** and **export** commands are the method of moving between modules and sharing information
+
+#### Example 1
+
+```javascript
+//File base.js
+//************************************
+import { projectId} from 'module1.js';
+console.log(projectID)
+
+//File module1.js
+//************************************
+export lete projectID = 99;
+
+// Output: 99
+```
+
+#### Example 2
+
+![Modules with multiple imports](./images/ModuleEx2.jpg)
+
+![Modules with multiple imports](./images/ModuleEx2a.jpg)
+
+- **import** statements get hoisted to the top of the file and run first
+
+### Class Fundamentals
+
+- A **class** has a _typeof_ function
+
+```javascript
+class Task {
+
+}
+let task = new Task();
+console.log(typeof task);
+//task is an object which makes it an instantiated class
+```
+
+#### Call a method on a class
+
+```javascript
+class Task {
+  showID() {
+    console.log('99');
+  }
+}
+let task = new Task();
+task.showID();
+//99 shows in the console
+```
+
