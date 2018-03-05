@@ -234,3 +234,7 @@ console.log(hex);
 - **.toLowerCase()** converts a string to all lower case letters
 - **.toUpperCase()** converts a string to all UPPER case letters
 
+### Boolean
+
+- **true** and **false** are specified all lower case or you'll get an error
+- "**!!**" will turn any variable into boolean.  The first ! turns it to boolean and negates it.  The second ! reverses the first for the correct boolean value
