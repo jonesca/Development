@@ -238,3 +238,111 @@ console.log(hex);
 
 - **true** and **false** are specified all lower case or you'll get an error
 - "**!!**" will turn any variable into boolean.  The first ! turns it to boolean and negates it.  The second ! reverses the first for the correct boolean value
+
+### undefined & null
+
+- A declared variable that has not be initialized will be set to **undefined**
+  - It is not good practice to explicitly let a variable be _undefined_
+  - To wipe out a variable, it is good practice to use **null**
+- If a variable is set to undefined we know JavaScript did that.  If the variable is set to null we know the code did that.
+- When variable is initialized to _null_ it becomes an empty **object**
+- JavaScript considers undefined and null to be equal.  So if they are compared with == they evaluate to true.  When compared with === they evaluate to false since undefined is typeof undefined and null is typeof object
+
+### Global Scope
+
+- When working outside a function **this** === **window** evaluates to true indicating global scope
+
+## Operators
+
+### Addition "+"
+
+- JavaScript uses floating point number for decimals; floating point numbers are inaccurate so **5.1 + 3.3** evaluates to 8.39999999 rather than 8.4 as expected.
+  - To fix this error:
+
+  ```javascript
+  var total = 5.1 + 3.3;
+  console.log(total.toFixed(2));
+  //8.40 shows in the console
+  ```
+
+- JavaScript treats everything as a **string** context first
+- Strings are concatenated using "+"
+
+### Subtraction "-"
+
+- Subtraction is defaulted to numeric context with subtraction "-"
+- With strings, JavaScript sees the "-" and immediately puts everything in a numeric context
+
+```javascript
+var total = 3.8 - 2.1; //evaluates to 1.69999997
+console.log(total.toFixed(3)); //evaluates to 1.700 with subraction we use 3 as the rounder
+var total = "300" - "200"; //evaluates to 100
+var total = "PRD300" - "ITEM200"; //evaluates to NaN
+```
+
+- If you have a specialized object that needs to operate as a number you do so by assigning the value of the object to _valueOf_
+
+```javascript
+var obj = {
+  valueOf: function() {return 100;}
+};
+var total = 300 - obj;
+console.log(total); //evaluates to 200
+```
+
+### Unary Operatorys "++ -- +value -value"
+
+- **++level** or **level++** is the same as saying **level = level + 1**
+  - Different is when level is incremented
+
+```javascript
+var level = 5;
+var nextLevel = ++level; //evaluates to 6
+var nextLevel = level++; //evaluates to 5 since level == 5 and is assigned then incremented
+```
+
+- Use **"-"** to flip the positive/negative value of a number
+
+```javascript
+var value = -42;
+value = -value; //evaluates to 42
+```
+
+### Bitwise Operators
+
+```javascript
+var num1 = parseInt('1010', 2);
+var num2 = parseInt('0110', 2);
+var total = num1 & num2; //the & is the bitwise operator. we want to and these two numbers together.  Where 1 lines up with 1 it is 1 - evaluates to  10
+//essentially, the comparing down so 1,0; 1,0; 1,1; 0,0
+//working with binary numbers the bits are important not the decimal value
+var total = num1 | num2; // | is the bitwise or.  evaluates to 1 if there is a 1 in the compare.  Evaluates to 1110
+var total = num1 ^ num2; // ^ is exclusive or; to get 1 to come down one value must be 1 and one value must be 0 - Evaluates to 1100
+```
+
+### Miscellaneous Operators
+
+#### compound operators
+
+- **+=**
+- **-=**
+- ***=**
+- **/=**
+- **%=**
+- **<<=**
+
+```javascript
+var total = 6;
+total += 4; // simply adding 4 to the value of total.  Same thing as total = total + 4;
+```
+
+```javascript
+var total = 1;
+total <<= 2; // shift left 2: take 1, multiply it by 2 then do it a again - results in 4
+var total = 4;
+total >>= 1; //shift right 1: take 4 devide by 2 once - results in 2
+```
+
+## Arrays and Reference Types
+
+### Understanding Reference Types
