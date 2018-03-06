@@ -505,3 +505,66 @@ console.log(result); // ["am", "Am"]
 
 - Search for **RegExp** on MDN (Mozilla Developers Network)
 
+## Objects, JSON, and Prototypes
+
+### JSON
+
+- **JavaScript Object Notation** - a way of specifying a new object within Javascript code
+- Two ways of accessing the properties of an object are using **dot notation** or **bracket notation**
+
+```javascript
+var project = Object(); //create a new blank object
+project.name = 'Project Phoenix'; //set the name property of the project Object of string type
+project.securityLevel = 15; // setting a property of number type
+project.updateDueDate = function () {
+  return true;
+}; // setting a property of type function
+
+console.log(project.updateDueDate());
+console.log(project.securityLevel); // dot notation = 15
+console.log(project['securityLevel']); // bracket notation = 15 bracket notation is more flexible
+var field = 'securityLevel';
+console.log(project[field]); // 15
+```
+
+#### Example 2
+
+```javascript
+var project = {}; // another way to declare an empty object
+project.name = 'Project Phoenix';
+console.log(project.name);
+```
+
+#### Example 3
+
+```javascript
+// declare a function and properties
+var project = {
+  name: 'Project Phoenix',
+  securityLevel: 15,
+  updateDueDate: function () {
+    return true;
+  },
+  team: ['iquanaboy', 'cactusgirl', 'Buffy'] // set property of type array
+};
+console.log(project.name);
+console.log(project.team[2]);
+```
+
+#### Example 4
+
+- Create a JSON object with an array.  The array elements are objects themselves
+
+```javascript
+var project = {
+  tasks: [
+    {
+      taskName: 'first'
+    },
+    {
+      taskName: 'second'
+    }
+  ]
+};
+console.log(project.tasks[1].taskName);
+```
