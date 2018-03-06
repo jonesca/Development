@@ -346,3 +346,162 @@ total >>= 1; //shift right 1: take 4 devide by 2 once - results in 2
 ## Arrays and Reference Types
 
 ### Understanding Reference Types
+
+#### Primitive Storage
+
+- Set a variable to some value
+- The runtime engine creates the variable, assigns it some storage and insert the assigned value
+
+![Primitive Storage](./images/PrimitiveStorage.jpg)
+
+- Storage is allocated for each new variable assigned and values get copied around a lot.
+- In the following example n is assigned 42, a is then assigned n which is 42, finally a is reset to 9 and n is still 42.
+
+![Primitive Storage 2](./images/PrimitiveStorage02.jpg)
+
+#### Reference Type Storage
+
+```javascript
+//create a variable o and set to object containing a property, name: set to "Jill"
+var o = {
+  name: "Jill"
+};
+```
+
+![Reference Type Storage](./images/ReferenceStorage.jpg)
+
+- If a new value is assigned to o2 it changes the reference value and the value of o is also changed.
+
+#### Reference Types
+
+- Objects
+- Arrays
+- Dates
+- RegExps's (Regular Expressions)
+- Functions
+- Primitives (via Wrappers)
+
+### Array Fundamentals
+
+```javascript
+// Declare an array
+// The following are all valid methods for declaring an array
+var entries = new Array('trains', 42, true);
+var entries = Array('trains', 42, true);
+var entries = ['trains', 42, true;]
+
+// Access elements of an array
+console.log(entries[0]); // yields trains
+// if an array position  is call that doesn't exist undefined is returned
+```
+
+#### Set the array size
+
+- declare a new array and initialize it with a certain number of elements
+
+```javascript
+var entries = new Array(5);
+var ratings = [5, 2, 4];
+
+entries.length = 10; //resets to 10
+
+//expand the array to 42 elements and assign element 42 Cars
+entries[42] = 'Cars';
+
+// append to an array
+entries[entries.length] = 'Bicycles';
+
+// list the elements in an array
+console.log(entries.toString());
+
+// list the elements in an array of numbers
+console.log(entries.valueOf());
+
+// join the elements of an array with the indicated string between
+console.log(ratings.valueOf(' | '));
+```
+
+### Array Features
+
+```javascript
+var ratings = [];
+ratings.push(5);
+ratings.push(2, 4); // [5, 2, 4]
+ratings.pop(); // [5, 2]
+
+ratings.shift(); // [2]
+ratings.unshift(3); // [3, 2]
+ratings.concat([4, 5, 6], 7, 8); // [3, 2, 4, 5, 6, 7, 8]
+ratings.slice(2); // [4, 5, 6, 7, 8]
+ratings.slice(2, 3); // [5, 6]
+ratings = [4, 5, 6, 7, 8];
+ratings.slice(-2); // [7, 8]
+ratings = [4, 5, 6, 7, 8];
+ratings.splice(1,2); // [4, 7, 8]
+ratings.splice(2, 0, 99); // [4, 7, 99, 8] insert 99 at index 2
+//starting at index delete n elements and insert indicated elements
+ratings = [1, 2, 3, 4];
+ratings.reverse(); //4,3,2,1
+ratings.sort(); //1,2,3,4
+```
+
+### Date Fundamentals
+
+```javascript
+var dt = new Date();
+console.log(dt); // Tue Mar 06 2018 12:10:58 GMT-0700 (Mountain Standard Time)
+
+var dt = Date.now();
+console.log(dt); // 1520363664187 the number of seconds since January 1, 1970 to now
+
+var dt = new Date(Date.now());
+console.log(dt); // Tue Mar 06 2018 12:17:17 GMT-0700 (Mountain Standard Time)
+
+var dt = new Date();
+console.log(dt.toDateString()); // Tue Mar 06 2018
+console.log(dt.toTimeString()); // 12:18:24 GMT-0700 (Mountain Standard Time)
+console.log(dt.getFullYear()); // 2018
+```
+
+- Many more data functions that can be looked up online (Search on MDN **Date**)
+
+### Regular Expressions RegExp
+
+```javascript
+var pattern = new RegExp('am', 'g');
+// look for all instances of 'am' in a string.  The 'g' means global
+var pattern = /am/g //exact same thing in shorthand
+
+// find all results of a search
+var blogText = "Sam I Am";
+var pattern = /m/g;
+var result = pattern.exec(blogText);
+while (result) {
+  console.log(result.index);
+  result = pattern.exec(blogText);
+}
+// 2 7
+
+// match search results of pattern
+var blogText = "Sam I Am";
+var pattern = /am/gi; //g = global i = case insensitive
+var result = blogText.match(pattern);
+console.log(result); // ["am", "Am"]
+
+// OR...................
+
+var blogText = "Sam I Am";
+var pattern = /[aA]m/g;
+var result = blogText.match(pattern);
+console.log(result); // ["am", "Am"]
+
+// "." (dot character)... "." represents any character
+
+var blogText = "Sam I Am";
+var pattern = /.m/g;
+var result = blogText.match(pattern);
+console.log(result); // ["am", "Am"]
+```
+
+- Search for **RegExp** on MDN (Mozilla Developers Network)
+
