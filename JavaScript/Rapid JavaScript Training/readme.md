@@ -566,5 +566,92 @@ var project = {
     }
   ]
 };
-console.log(project.tasks[1].taskName);
+console.log(project.tasks[1].taskName); // second shows in the console
 ```
+
+### Understanding Prototypes
+
+- **EVERY** JavaScript Object has a prototype property; however, we don't always have access to it
+- The prototype property is simply and object
+- The _prototype_ property is most easily accessed on constructor functions
+
+```javascript
+var project = {
+  name: 'Project Phoenix'
+};
+console.log(project.__proto__ === Object.prototype); // true - indicating the objects prototype is set to the global prototype on the Object constructor function
+```
+
+### Object.create() and Prototypes
+
+- Using **Object.create()** gives us control over the prototype
+
+```javascript
+var project = {
+  securityLevel: 2
+};
+var secretProject = Object.create(project); // create a new empty object with the first argument (project) becoming the prototype
+console.log(secretProject.securityLevel);
+
+///secretProject.__proto__.__proto__ === Object.prototype.  project is the prototype of secretProject and Object.prototype is the prototype of project.
+```
+
+### Object.defineProperty()
+
+```javascript
+var task = { }; //create an empty object
+
+/*
+Define a property on the object task
+named text with a value of Get this job done!
+*/
+Object.defineProperty(task, 'text', {
+  value: 'Get this job done!',
+  writable: true, // this makes the property writable
+  enumerable: true // look at every field in the object and log out that field of the property
+});
+console.log(task.text); // Get this job done!
+task.text = task.text + ' ... NOW!';
+console.log(task.text); // Get this job done! ... NOW!
+for (var f in task)
+console.log(f);
+```
+
+#### Getter and Setter
+
+```javascript
+var task = {
+  _dueDate: '1/15/18'
+};
+Object.defineProperty(task, 'dueDate', {
+  get: function() {
+    return this._dueDate;
+  },
+  set: function (newValue) {
+    this._dueDate = newValue;
+  }
+});
+task.dueDate = '2/2/18';
+console.log(task.dueDate); // 2/2/18
+```
+
+#### Object.defineProperties()
+
+- Define multiple properties at a time
+
+```javascript
+var task = { };
+Object.defineProperties(task, {
+  'text': {
+    value: 'New Task'
+  },
+  'dueDate': {
+    value: '1/15/18'
+  }
+});
+console.log(task.text + ' Due: ' + task.dueDate);  // New Task Due: 1/15/18
+```
+
+#### Object.getOwnPropertyDescriptor
+
+![Get Own Descriptor](./images/getowndescriptor.jpg)
