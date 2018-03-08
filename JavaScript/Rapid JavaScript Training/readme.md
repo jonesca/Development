@@ -655,3 +655,273 @@ console.log(task.text + ' Due: ' + task.dueDate);  // New Task Due: 1/15/18
 #### Object.getOwnPropertyDescriptor
 
 ![Get Own Descriptor](./images/getowndescriptor.jpg)
+
+## Functions
+
+### Naming Function Expressions
+
+- Anonymous functions sometimes might make sense; however, many are starting to name all functions because in the in event of an error the stack trace only shows anonymous function making it challenging to trace the offending function. This is most helpful the larger a JavaScript project becomes.
+
+### Constructor Functions
+
+- By convention constructor functions always begin with an upper case letter.  **Object** is a constructor function
+
+```javascript
+console.log(typeof Object);
+// function
+```
+
+- Create a simply constructor function
+
+- **this** refers to the current object
+
+```javascript
+var Employee = function (name, boss) {
+  this.name = name;
+  this.boss = boss;
+};
+var newEmployee = new Employee('JJ', 'JD Hogg');
+console.log(typeof newEmployee); // object
+console.log(newEmployee.name); // JJ
+console.log(newEmployee.boss); // JD Hogg
+```
+
+- In general do not add functions to a constructor function.  Functions should be added to the contructor function prototype
+- When working with constructor functions we have access to the prototype
+
+#### Add a function to the prototype of a constructor function
+
+```javascript
+var Employee = function (name) {
+  this.name = name;
+};
+Employee.prototype.giveRaise = function () {
+
+};
+var e1 = new Employee('JJ');
+var e2 = new Employee('JV');
+console.log(e1.giveRaise === e2.giveRaise); // true since the function is part of the prototype
+```
+
+### The "this" Keyword
+
+- **this** is used as a variable to access some object either in the global namespace or in a function. Usually we are concerned about it in a function.
+
+#### Example: this in the global namespace
+
+- name, this.name, window.name are all the same in the global space
+
+```javascript
+var name = 'Jeff';
+console.log(name); // Jeff
+console.log(this.name); // Jeff
+console.log(window.name); // Jeff
+```
+
+### Calling Functions
+
+- There are times when you want to take control of the **this** variable in a function
+
+#### Using call() and apply()
+
+- when using call() a comma separated list of arguments needs to be passed
+- when using apply() an array of arguments needs to be passed
+
+```javascript
+var updateZipCode = function () {
+  console.log(this);
+};
+updateZipCode(); // window {...}
+updateZipCode.call({}); // Object {} : The call function lets us pass an empty object to the this variable in a function
+updateZipCode.call({ zip: '11787'}); // Object { zip: "11787"}
+
+// OR
+
+var zipCode = {
+  zip: '11787'
+}
+updateZipCode.call(zipCode);
+```
+
+#### Example call()
+
+```javascript
+var updateZipCode = function (newZip, country) {
+  console.log(newZip + ' ' + country);
+};
+var zipCode = {
+  zip: '11787'
+}
+updateZipCode.call(zipCode, '11888', 'us'); //call the function passing in zipCode for the this variable followed by the parameters
+// 11888 us shows in the console
+```
+
+#### Example apply()
+
+- apply() uses an array and breaks down the elements of an array into arguments
+
+```javascript
+var updateZipCode = function (newZip, country) {
+  console.log(newZip + ' ' + country);
+};
+var zipCode = {
+  zip: '11787'
+}
+updateZipCode.call(zipCode, ['11888', 'us']); //call the function passing in zipCode for the this variable followed by the parameters
+// 11888 us shows in the console
+```
+
+### closure
+
+```javascript
+var salaryUpdater = function (salary) {
+  var currentSalary = salary;
+  var generator = function () {
+    currentSalary += 10000;
+    return currentSalary
+  };
+  return generator;
+};
+
+var updateFn = salaryUpdater(50000);
+console.log(updateFn);
+updateFn();
+console.log(updateFn());
+```
+
+### IIFEs - Immediately Invoked Function Expressions
+
+- **IIFEs** are created by enclosing a function in parenthesis and then calling the function with the trailing opening and closing parenthesis
+
+```javascript
+(function () {
+  console.log('Executed!');
+})();
+```
+
+```javascript
+var app = {};
+(function (ns) {
+  ns.name = 'None';
+})(app);
+console.log(app.name); // None
+```
+
+### Recursion
+
+- **Recursion** refers to a functions ability to call itself
+
+```javascript
+var orgChart = {
+  name: 'Michael', subordinates: [
+    {
+      name: 'Andy', subordinates: [
+        {
+          name: 'Dwight', subordinates: []
+        },
+        {
+          name: 'Kevin', subordinates: []
+        }
+      ]
+    }
+  ]
+};
+
+var fn = function (topEmployee) {
+  console.log(topEmployee.name);
+  for (var i = 0; i < topEmployee.subordinates.length; i++)
+    fn(topEmployee.subordinates[i]);
+};
+
+fn(orgChart);
+```
+
+- When using recursion it is a lot safer to give the function a name rather than use anonymous functions
+
+## Programming the BOM and DOM
+
+- **BOM** is the Browser Object Model.  This is a set of objects the browser exposes to JavaScript
+- **DOM** is the Document Object Model representing the document the browser is showing and exposes objects to JavaScript for working with the document
+
+### The window Object and Timers
+
+- Timers are part of the window Object rather than part of the JavaScript specification
+
+```javascript
+//the position of the browser window from the top left corner
+console.log(window.screenLeft + ', ' + window.screenTop);
+// the size of the viewport
+console.log(window.innerWidth + ', ' + window.outerWidth);
+// open a new window
+window.open('http://www.google.com', '_blank');
+setTimeout();
+
+// Display the seconds of thetime
+console.log(new Date().getSeconds());
+var id = setTimeout(function() {
+  console.log(new Date().getSeconds());
+}, 1000);
+clearTimeout(id);
+
+// Display the seconds of the time until the seconds equal 10
+console.log(new Date().getSeconds());
+var id = setInterval(function() {
+  var secs = new Date().getSeconds();
+  console.log(secs);
+  if (secs === 10)
+    clearInterval(id);
+}, 1000);
+```
+
+### System Dialogs
+
+```javascript
+// alert ********************************************
+alert('Hello World!');
+
+// confirm ******************************************
+if (confirm('Delete EVERYTHING?!')){
+  console.log('you asked for it!')
+}
+else {
+  console.log('Maybe next time...');
+}
+
+// promtpt ******************************************
+var result = prompt('Your name?');
+console.log(result);
+```
+
+### The location Object
+
+```javascript
+console.log(location.href); // url eg. http://localhost:55138/index.html
+console.log(location.host); // localhost:55138
+console.log(location.port); // 55138
+console.log(location.protocol); // http:
+location.assign('http://www.google.com')); // should redirect the browser if the user settings allow
+```
+
+### Document Basics
+
+![Document Selectors getElementByID](./images/getElementByID.jpg)
+
+![Document Selectors getElementByTagName](./images/getElementsByTagName.jpg)
+
+![Document Selectors getElementByClassName](./images/getElementsByClassName.jpg)
+
+![Document Selectors getAttribute](./images/getAttribute.jpg)
+
+![Document Selectors setAttribute](./images/setAttribute.jpg)
+
+![Childnodes](./images/childNodes.jpg)
+
+- The 'text' is from the white space
+
+### Query Selectors
+
+![querySelector.jpg](./images/querySelector.jpg)
+
+![querySelector02.jpg](./images/querySelector02.jpg)
+
+![querySelectorAll.jpg](./images/querySelectorAll.jpg)
