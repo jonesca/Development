@@ -925,3 +925,18 @@ location.assign('http://www.google.com')); // should redirect the browser if the
 ![querySelector02.jpg](./images/querySelector02.jpg)
 
 ![querySelectorAll.jpg](./images/querySelectorAll.jpg)
+
+## Event Handlers
+
+### Handling Events
+
+```html
+<!-- body of HTML -->
+<input type="button" value="Submit" onclick="alert('foo')" />
+```
+
+- Not a good idea to place JavaScript in a tag. It is better to place JavaScript in a script file or in a script tag on the page
+
+### Event Listeners
+
+![Event Listeners](./images/EventListeners.jpg)
