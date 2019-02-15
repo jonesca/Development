@@ -156,5 +156,231 @@ public class Worker{
 
 ## Static Members
 
-- Static Members are accessed through the class, not through an object
+- Static Members are accessed through the class, not through an object.
 
+## Programming with Objects
+
+### Inheritance
+
+- _Inheritance_ means that classes may derive from existing classes
+- _Derive_ is to specialize the "parent" class
+- **Example**: If we start with an **Animal** class we can derive from that a **Dog** and a **Cat** class.  We can similarly derive variations on the Dog and Cat class; such as, different breeds.
+- The parent class should be generalization of the derived class containing the shared characteristics of the classes derived from it.
+- Inheritance creates an "_is-a_" relationship
+- Indicate a derived class using the colon to reference the base class
+
+```C#
+Class Book {
+  //...
+}
+
+Class Fiction : Book {
+  //...Fiction is-a type of book
+}
+
+Class NonFiction : Book {
+  //...NonFiction is-a type of book
+}
+```
+
+### Polymorphism
+
+- **Polymorphism**: Taking many forms
+- Implemented using _Method Overriding_ which is modifying a method in the derived class.  The method is created in the parent class and modified in the derived class.
+- Implemented using _virtual_ and _override_ methods
+
+```C#
+Class Book {
+  public virtual double Discount();
+}
+
+Class Fiction : Book {
+  public override double Discount{
+    base.Discount();  // chained up to the parent (base) class if we need the behavior of the base class to build on
+    //other work here
+  }
+}
+```
+
+- Derived and base classes are said to be and can be treated ploymorphically; meaning, the derived class varies the behavior of the base class
+
+### Encapsulation
+
+- **Encapsulation** is the _CRITICAL_ idea that each class has a single responsibility
+- Most of the internals of the class are private, with a few will-defined properties and methods that are public
+
+## Bugs and Exceptions
+
+- **Bugs** are programming errors
+- **Exceptions** are problems at run time; possibly unavoidable
+- Users will enter bogus data; it is important for your program to handle errant data
+- Things go wrong:
+  - Networks go down
+  - Disks fail
+  - Run out of memory
+  - Objects are null
+- Your goal is to recover and avoid crashing when "things go wrong"
+
+### What is an exception
+
+- An object
+- System.Exception is the base of all exceptions
+- Custom Exceptions
+- May contain other exceptions
+
+### call stack
+
+- the list of methods that called methods that called other methods
+  - Exceptions unwind the call stack until they find a "handler"
+- If no handlers are found the program will crash
+
+### Handling Exceptions
+
+- Exceptions are handled with a try/catch block
+
+#### Example:
+
+```C#
+a = b;
+//...
+int c = b / (a - b); //KA-BOOM
+Console.WriteLine($"c == {c}");
+//Divide by Zero: CRASH!!!
+
+//Same program with a Try/Catch block to handle the error
+
+a = b;
+//...
+try {
+  int c = b / (a - b);
+  Console.WriteLine($"c == {c}");
+}
+} catch {
+  Console.WriteLine("oops! Attempt to divide by Zero!")
+}
+
+//If you need code to run regardless you add a "finally" statement
+
+```
+
+## Collections
+
+### Arrays
+
+```c#
+//declare an array
+Int[] someNumbersArray = new int[7];
+Person[] peopleArray = new Person[7];
+```
+
+- Must declare size
+  - Too large; waste space
+  - Too small; run out of room
+- Easy to run past the end of the array and crash your program
+
+### Lists
+
+- Lists are used much more often now  
+`List<T>` pronounced list of  where T stands for a type
+
+```c#
+List<Person> people = new List<Person>();
+//List of TYPE Person declared it "people" and instantiate that list by declaring a new List of Persion
+
+Person john = new Person() { Name = "John"}; //make a person 'john', instantiate john
+people.Add(john);
+//add john to the list
+```
+
+### Dictionary
+
+`Dictionary<K,T>`
+
+- Dictionary of K and T where K is the key to the dictionary item and T is the type
+
+## Promises, Interfaces and Abstract Classes
+
+- An Interface is a contract.  An interface describes what a class must do to implement that interface; the class then does everything required by the interface.
+
+## Advanced Statements
+
+### Ternary Operator
+
+- Shorthand for if/else statement
+- Test and return first term if true, second if false
+
+```c#
+int bigger = x > y ? x : y;
+// Test if x is greater than y.  If true, assign x to bigger.  If false, assign y to bigger
+```
+
+### Null Conditional
+
+- Used with collections and classes
+- The operator is ?. (Question Mark, dot [period])
+
+```c#
+List<string> authors = null;
+int? count = authors?.Count;
+string message = count == null ? "count is null" : "count is not null";
+Console.WriteLine(message);
+//List of strings named authors that is null
+//A nullable integer for count
+//We examine authors.  If it is null we return null otherwise we return the count
+//Then using the ternary operator we check to see if count is null.  If it is we assign the first string if it isn't we return the second string
+```
+
+### Null Coalescing
+
+- Operator is written as 2 question marks (??)
+- If the left hand operand is **NOT** null, return it; otherwise, return the right hand operator
+
+```c#
+List<string> authors = null;
+Int? howMany = authors?.Count ?? 0;
+Console.WriteLine("Null coalescing. howMany = " + howMany);
+
+authors = new List<string>(){
+  "hello",
+  "world"
+};
+
+howMany = authors?.Count ?? 0;
+Console.WriteLine("Null coalescing. howMany = " + howMany);
+```
+
+## Asynchronous CSharp
+
+### Threads
+
+- The main thread is typically a User Interface thread
+- Without asynchronous programming, starting a long operation can freeze the main thread
+- With asynchronous programming the long thread can continue while the main thread is unaffected
+
+#### await
+
+- The keyword _await_ is used to say wait for this to finish then continue
+- if await is used _async_ must be used as well
+
+```c#
+public async void Work(){
+  await SlowTask();
+}
+```
+
+## Delegates and Events
+
+- A _delegate_ is just a reference to a method
+
+## LINQ
+
+### Lambda Expressions
+
+```c#
+public int Multiply(intx, int y){
+  return x * y;
+
+// using a lambda expression we can say the same thing much more concisely
+
+(x, y) => (x * y);
+}
